@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, ScrollView } from "react-native";
 import { Button, Input, Card, Modal, Stack, Text } from "../components";
+import { spacing, radius, colors } from "../tokens";
 
 const PlaygroundScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -13,7 +14,7 @@ const PlaygroundScreen = () => {
 
   return (
     <ScrollView
-      style={{ flex: 1, padding: 16 }}
+      style={{ flex: 1, padding: spacing.lg }}
       keyboardShouldPersistTaps="handled"
     >
       <Stack gap="lg">
@@ -96,9 +97,9 @@ const PlaygroundScreen = () => {
             <Stack
               gap="sm"
               style={{
-                backgroundColor: "#F0F0F0",
-                padding: 8,
-                borderRadius: 4,
+                backgroundColor: colors.background,
+                padding: spacing.sm,
+                borderRadius: radius.sm,
               }}
             >
               <Text>Item 1</Text>
@@ -111,9 +112,9 @@ const PlaygroundScreen = () => {
               direction="row"
               gap="sm"
               style={{
-                backgroundColor: "#F0F0F0",
-                padding: 8,
-                borderRadius: 4,
+                backgroundColor: colors.background,
+                padding: spacing.sm,
+                borderRadius: radius.sm,
               }}
             >
               <Text>Item 1</Text>
@@ -127,9 +128,9 @@ const PlaygroundScreen = () => {
               gap="sm"
               wrap
               style={{
-                backgroundColor: "#F0F0F0",
-                padding: 8,
-                borderRadius: 4,
+                backgroundColor: colors.background,
+                padding: spacing.sm,
+                borderRadius: radius.sm,
               }}
             >
               <Button title="Btn 1" variant="secondary" onPress={() => {}} />
@@ -144,9 +145,9 @@ const PlaygroundScreen = () => {
               gap="sm"
               justify="space-between"
               style={{
-                backgroundColor: "#F0F0F0",
-                padding: 8,
-                borderRadius: 4,
+                backgroundColor: colors.background,
+                padding: spacing.sm,
+                borderRadius: radius.sm,
               }}
             >
               <Text>Left</Text>

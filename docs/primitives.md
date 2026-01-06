@@ -63,7 +63,7 @@ Buttons support variants, disabled state, and loading-friendly patterns. It exte
 
 ## Input
 
-Controlled input component with variants and error handling. It extends all standard `TextInputProps` from React Native.
+Controlled input component with variants and error handling. **Note**: Input must be used as a controlled component (provide `value` prop). A development warning will be shown if `value` is undefined. It extends all standard `TextInputProps` from React Native.
 
 ### Usage
 
@@ -258,6 +258,7 @@ The `Playground` screen (located at `src/screens/Playground.tsx`) demonstrates a
 - Visual documentation
 - Manual test bed
 - API reference by example
+- **Source of truth**: If it's not shown in Playground, it's not supported
 
 This screen should stay **simple and explicit**, not clever.
 
@@ -270,6 +271,33 @@ This screen should stay **simple and explicit**, not clever.
 3. **Composition**: Combine primitives to build complex UIs (e.g., `Card` + `Stack` + `Input`)
 4. **Accessibility**: All components include built-in accessibility props
 5. **Extensibility**: Use `style` prop for custom styling when needed, but prefer token-based props
+
+---
+
+## DO / DON'T
+
+### DO
+
+- ✅ Compose primitives (`Card + Stack + Input`)
+- ✅ Use tokens for spacing, color, radius
+- ✅ Keep screens explicit
+- ✅ Provide accessibility roles for clickable elements
+- ✅ Use controlled components with explicit `value` and `onChange`
+
+### DON'T
+
+- ❌ Add layout logic inside primitives
+- ❌ Hardcode spacing or colors (use tokens instead)
+- ❌ Add business logic to UI components
+- ❌ Use primitives without proper accessibility roles
+- ❌ Use uncontrolled inputs (Input requires `value` prop)
+
+### Rules
+
+- **Hardcoded spacing/colors are forbidden outside tokens**: Always use `spacing.*`, `colors.*`, `radius.*`, `elevation.*` from tokens
+- **If it's clickable → it must have an accessibility role**: All interactive elements must have proper `accessibilityRole` and `accessibilityLabel`
+- **If a prop exists → document it**: All public props must be documented in this file
+- **If it's not documented → don't expose it**: Undocumented props are considered private/internal
 
 ---
 

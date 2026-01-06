@@ -14,6 +14,15 @@ export const Input: React.FC<InputProps> = ({
   placeholderTextColor = colors.muted,
   ...props
 }) => {
+  // Enforce controlled usage in development
+  if (__DEV__) {
+    if (props.value === undefined) {
+      console.warn(
+        "Input should be used as a controlled component (provide `value`)."
+      );
+    }
+  }
+
   const borderColor = error ? colors.error : colors.border;
   const borderWidth = variant === "outlined" ? 1 : 0;
 
